@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>WebSocket</title>
+<script src="WSClient.js" charset="utf-8"></script>
+</head>
+<body>
+<h1> 聊天室 </h1>
+<div id="content" name="name" style="overflow-y: scroll; width: 400px; height: 300px; border: solid 1px #000"></div>
+<br />
+<div>
+    <input type="text" id="msg" style="width: 200px;">
+</div>
+<button id="submit">提交</button>
+<script>
+
+var msg = document.querySelector( '#msg' );
+var submit = document.querySelector( '#submit' );
+
+submit.onclick = function () {
+var val = msg.value;
+ws.send( val ) /* 发送提交内容 */
+msg.value = ''/* 清空 */
+}
+</script>
+</body>
+</html>
